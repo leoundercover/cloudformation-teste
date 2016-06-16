@@ -4,7 +4,7 @@
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Handler": "index.handler",
-        "Role": { "Fn::GetAtt" : ["lambda_s3_exec_role"] },
+        "Role": { "Fn::GetAtt" : ["lambda_s3_exec_role", "Arn"] },
     "Code": {
       "S3Bucket": "deployfun-teste",
       "S3Key": "funFunction.zip"

@@ -1,4 +1,4 @@
-"LambdaFunFunction": {
+{
   "Type": "AWS::Lambda::Function",
   "Properties": {
     "Handler": "index.handler",

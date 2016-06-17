@@ -3,7 +3,7 @@
     "FunFunctionLambda": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
-        "Handler": "index.handler",
+        "Handler": "validateurl.handler",
         "Role": { "Fn::GetAtt" : ["LambdaExecutionRole", "Arn"] },
         "Code": {
           "S3Bucket": "deployfun-teste",

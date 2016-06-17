@@ -32,7 +32,6 @@
               "Effect": "Allow",
               "Action": [
                 "logs:*",
-                "cloudformation:*"
               ],
               "Resource": "*"
             }]

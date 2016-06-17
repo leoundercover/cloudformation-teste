@@ -7,7 +7,7 @@
         "Role": { "Fn::GetAtt" : ["LambdaExecutionRole", "Arn"] },
         "Code": {
           "S3Bucket": "deployfun-teste",
-          "S3key": "funFunction.zip"
+          "S3Key": "funFunction.zip"
         },
         "Runtime": "nodejs"
       }

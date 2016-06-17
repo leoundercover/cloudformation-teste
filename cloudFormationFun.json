@@ -1,6 +1,6 @@
 { "AWSTemplateFormatVersion": "2010-09-09",
   "Resources" : {
-    "AppendItemToListFunction": {
+    "FunFunctionLambda": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Handler": "index.handler",
@@ -9,7 +9,7 @@
           "S3Bucket": "deployfun-teste",
           "S3Key": "funFunction.zip"
         },
-        "Runtime": "nodejs"
+        "Runtime": "nodejs4.3"
       }
     },
 
@@ -28,7 +28,14 @@
           "PolicyName": "root",
           "PolicyDocument": {
             "Version": "2012-10-17",
-            "Statement": [{ "Effect": "Allow", "Action": ["logs:*","cloudformation:*"], "Resource": "*" }]
+            "Statement": [{
+              "Effect": "Allow",
+              "Action": [
+                "logs:*",
+                "cloudformation:*"
+              ],
+              "Resource": "*"
+            }]
           }
         }]
       }

@@ -31,7 +31,7 @@
             "Statement": [{
               "Effect": "Allow",
               "Action": [
-                "logs:*",
+                "logs:*"
               ],
               "Resource": "*"
             }]

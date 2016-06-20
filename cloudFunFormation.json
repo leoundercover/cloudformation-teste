@@ -1,15 +1,34 @@
 {
-  "Resources": {
+  "Resource":{
+    "CloudformationRole":{
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument":{
+          "Statement": [{
+            "Effect": "Allow",
+            "Action": [
+              "cloudformation:CreateStack",
+              "cloudformation:DescribeStacks",
+              "cloudformation:DescribeStackEvents",
+              "cloudformation:DescribeStackResources",
+              "cloudformation:GetTemplate",
+              "cloudformation:UpdateStack",
+              "cloudformation:ValidateTemplate"
+              ]
+          }]
+        }
+      }
+    },
     "LambdaFunFunction": {
-      "Type": "AWS::Lambda::Function",
+      "Type": "AWS::Lambda::Funciton",
       "Properties": {
         "Handler": "index.handler",
-        "Role": { "Fn::GetAtt" : ["oneClick_lambda_basic_execution_1463619923574", "Arn"] },
-    "Code": {
-      "S3Bucket": "deployfun-teste",
-      "S3Key": "funFunction.zip"
-    },
-    "Runtime": "nodejs"
+        "Code": {
+          "S3Bucket": "deployfun-teste",
+          "S3Key": "funFunction.zip"
+        },
+        "Runtime": "nodejs",
+        "Role": [{"Ref": "CloudformationRole"}]
       }
     }
   }

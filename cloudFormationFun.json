@@ -1,24 +1,23 @@
-{ "AWSTemplateFormatVersion": "2010-09-09",
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Parameters" : {
+    "FuncSourceType" : {
+      "Type" : "String",
+      "Default" : "S3",
+      "AllowedValues" : ["S3"],
+      "Description" : "Source da function"
+    },
 
- "Parameters" : {
-   "FuncSourceType" : {
-     "Type" : "String",
-     "Default" : "S3",
-     "AllowedValues" : ["S3"],
-     "Description" : "Source da function"
+    "S3FuncBucket" : {
+      "Type" : "String",
+      "Description" : "Nome do Bucket da function"
+    },
 
-   },
-
-   "S3FuncBucket" : {
-     "Type" : "String",
-     "Description" : "Nome do Bucket da function"
-   },
-
-   "S3FuncArtifact" : {
-     "Type" : "String",
-     "Description" : "Informe o nome do zip"
-   }
- },
+    "S3FuncArtifact" : {
+      "Type" : "String",
+      "Description" : "Informe o nome do zip"
+    }
+  },
 
   "Metadata" : {
     "AWS::CloudFormation" : {

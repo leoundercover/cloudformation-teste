@@ -1,4 +1,40 @@
 { "AWSTemplateFormatVersion": "2010-09-09",
+
+ "Parameters" : {
+   "FuncSourceType" : {
+     "Type" : "String",
+     "Default" : "S3",
+     "AllowedValues" : ["S3"],
+     "Description" : "Source da function"
+
+   },
+
+   "S3FuncBucket" : {
+     "Type" : "String",
+     "Description" : "Nome do Bucket da function"
+   },
+
+   "S3FuncArtifact" : {
+     "Type" : "String",
+     "Description" : "Informe o nome do zip"
+   }
+ },
+
+  "Metadata" : {
+    "AWS::CloudFormation" : {
+     "ParameterGroup" : [
+       {
+         "Label" : {"default" : "Código fonte da aplicação - S3"},
+         "Parameters" : ["S3FuncBucket", "S3FuncArtifact"]
+       }
+     ]
+    }
+  },
+
+  "Conditions" : {
+    "S3AsSource" : {"Fn::Equals" : [{"Ref" : "FuncSourceType"}, "S3"]}
+  },
+
   "Resources" : {
     "FunFunctionLambda": {
       "Type": "AWS::Lambda::Function",
@@ -6,8 +42,8 @@
         "Handler": "index.handler",
         "Role": { "Fn::GetAtt" : ["LambdaExecutionRole", "Arn"] },
         "Code": {
-          "S3Bucket": "deployfun-teste",
-          "S3Key": "funFunction.zip"
+          "S3Bucket": {"Ref" : "S3FuncBucket"},
+          "S3Key": {"Ref" : "S3FuncArtifact"}
         },
         "Runtime": "nodejs4.3"
       }
@@ -38,6 +74,15 @@
           }
         }]
       }
+    }
+  },
+
+  "Outputs" : {
+    "FunctionBucketSource" : {
+      "Value" : {
+        "Fn::Join" : ["", ["http://s3.amazon.com/", {"Ref" : "S3FuncBucket"}, "/",  {"Ref" : "S3FuncArtifact"}] ]
+      },
+      "Description" : "Source do codigo fonte da aplicação"
     }
   }
 }

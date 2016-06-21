@@ -30,14 +30,11 @@
     }
   },
 
-  "Conditions" : {
-    "S3AsSource" : {"Fn::Equals" : [{"Ref" : "FuncSourceType"}, "S3"]}
-  },
-
   "Resources" : {
     "FunFunctionLambda": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
+        "FunctionName": "FunTesteFunction",
         "Handler": "index.handler",
         "Role": { "Fn::GetAtt" : ["LambdaExecutionRole", "Arn"] },
         "Code": {
@@ -66,7 +63,8 @@
             "Statement": [{
               "Effect": "Allow",
               "Action": [
-                "logs:*"
+                "logs:*",
+                "kms:Decrypt"
               ],
               "Resource": "*"
             }]

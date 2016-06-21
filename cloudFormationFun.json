@@ -36,7 +36,7 @@
       "Properties": {
         "FunctionName": "FunTesteFunction",
         "Handler": "index.handler",
-        "Role": { "Fn::GetAtt" : ["LambdaExecutionRole", "Arn"] },
+        "Role": { "Fn::GetAtt" : ["LambdaExecutionRole"] },
         "Description": "Version 1.1",
         "Code": {
           "S3Bucket": {"Ref" : "S3FuncBucket"},
@@ -65,7 +65,7 @@
               "Action": [
                 "logs:*",
                 "kms:Decrypt",
-                "cloudformation:UpdateStack:*"
+                "cloudformation:*"
               ],
               "Resource": "*"
             }]

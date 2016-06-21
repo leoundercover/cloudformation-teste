@@ -37,7 +37,7 @@
         "FunctionName": "FunTesteFunction",
         "Handler": "index.handler",
         "Role": { "Fn::GetAtt" : ["LambdaExecutionRole", "Arn"] },
-        "Description": "Version 1.1",
+        "Description": "Version 1.2",
         "Code": {
           "S3Bucket": {"Ref" : "S3FuncBucket"},
           "S3Key": {"Ref" : "S3FuncArtifact"}

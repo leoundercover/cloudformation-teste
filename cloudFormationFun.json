@@ -66,6 +66,7 @@
               "Action": [
                 "logs:*",
                 "kms:Decrypt"
+                "cloudformation:*"
               ],
               "Resource": "*"
             }]

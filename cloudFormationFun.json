@@ -72,7 +72,7 @@
               "Effect": "Allow",
               "Action": [
                 "logs:*",
-                "kms:Decrypt"
+                "kms:*"
               ],
               "Resource": "*"
             }]

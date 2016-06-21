@@ -36,7 +36,7 @@
       "Properties": {
         "FunctionName": "FunTesteFunction",
         "Handler": "index.handler",
-        "Role": { "Fn::GetAtt" : ["LambdaExecutionRole"] },
+        "Role": { "Fn::GetAtt" : ["LambdaExecutionRole", "Arn"] },
         "Description": "Version 1.1",
         "Code": {
           "S3Bucket": {"Ref" : "S3FuncBucket"},
@@ -53,6 +53,7 @@
           "Version": "2012-10-17",
           "Statement": [{
             "Effect": "Allow",
+            "Principal": {"Service": ["lambda.amazonaws.com"]},
             "Action": ["sts:AssumeRole"] }]
         },
         "Path": "/",

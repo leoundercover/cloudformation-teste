@@ -65,8 +65,8 @@
               "Effect": "Allow",
               "Action": [
                 "logs:*",
-                "kms:Decrypt"
-                "cloudformation:*"
+                "kms:Decrypt",
+                "cloudformation:UpdateStack:*"
               ],
               "Resource": "*"
             }]

@@ -37,7 +37,7 @@
         "FunctionName": "FunTesteFunction",
         "Handler": "index.handler",
         "Role": { "Fn::GetAtt" : ["LambdaExecutionRole", "Arn"] },
-        "Description": "Version 1.0",
+        "Description": "Version 1.1",
         "Code": {
           "S3Bucket": {"Ref" : "S3FuncBucket"},
           "S3Key": {"Ref" : "S3FuncArtifact"}
@@ -50,7 +50,7 @@
       "Type": "AWS::Lambda::Version",
       "Properties": {
         "FunctionName" : {"Ref" : "FunFunctionLambda"},
-        "Description" : "Update da function"
+        "Description" : "Version 2.A"
       }
     },
 

@@ -80,6 +80,7 @@
         "Fn::Join" : ["", ["http://s3.amazon.com/", {"Ref" : "S3FuncBucket"}, "/",  {"Ref" : "S3FuncArtifact"}] ]
       },
       "Description" : "Source do codigo fonte da aplicação"
-    }
+    },
+    "MyStackName" : { "Value" : { "Ref" : "AWS::StackName" } }
   }
 }

@@ -45,6 +45,14 @@
       }
     },
 
+    "UpdateFunctionLambda": {
+      "Type": "AWS::Lambda::Version",
+      "Properties": {
+        "FunctionName" : {"Ref" : "FunFunctionLambda"},
+        "Description" : "Update da function"
+      }
+    },
+
     "LambdaExecutionRole": {
       "Type": "AWS::IAM::Role",
       "Properties": {

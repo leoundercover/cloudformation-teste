@@ -31,15 +31,6 @@
   },
 
   "Resources" : {
-    "StackLambdaGet" : {
-      "Type" : "AWS::CloudFormation::Stack",
-      "Properties" : {
-        "Parameters" : {
-          "KeyName" : "StackLambdaGet"
-        }
-      }
-    },
-
     "FunFunctionLambda": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -52,14 +43,6 @@
           "S3Key": {"Ref" : "S3FuncArtifact"}
         },
         "Runtime": "nodejs4.3"
-      }
-    },
-
-    "UpdateFunctionLambda": {
-      "Type": "AWS::Lambda::Version",
-      "Properties": {
-        "FunctionName" : {"Ref" : "FunFunctionLambda"},
-        "Description" : "Version 2.A"
       }
     },
 
